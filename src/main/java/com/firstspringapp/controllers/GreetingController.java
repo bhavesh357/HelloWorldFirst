@@ -2,6 +2,7 @@ package com.firstspringapp.controllers;
 
 import com.firstspringapp.model.Greeting;
 import com.firstspringapp.model.User;
+import com.firstspringapp.service.IGreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
