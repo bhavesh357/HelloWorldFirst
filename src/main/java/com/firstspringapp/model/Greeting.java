@@ -1,5 +1,6 @@
 package com.firstspringapp.model;
 
+import javax.persistence.Entity;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Greeting {
