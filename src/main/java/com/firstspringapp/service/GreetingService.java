@@ -6,11 +6,9 @@ import com.firstspringapp.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
-@Transactional
 public class GreetingService implements IGreetingService{
     private static final String template= "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
@@ -26,6 +24,6 @@ public class GreetingService implements IGreetingService{
 
     @Override
     public Greeting getGreetingById(long id) {
-        return greetingRepository.findOne(id);
+        return greetingRepository.findById(id).get();
     }
 }
