@@ -27,6 +27,11 @@ public class GreetingService implements IGreetingService{
     }
 
     @Override
+    public void delete(Integer id) {
+        repo.deleteById(Long.valueOf(id));
+    }
+
+    @Override
     public Greeting addGreeting(User user) {
         String message = String.format(template, (user.toString().isEmpty()) ? "Hello World" : user.toString());
         return repo.save(new Greeting(counter.incrementAndGet(),message));

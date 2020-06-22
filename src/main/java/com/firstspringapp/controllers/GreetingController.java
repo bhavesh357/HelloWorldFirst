@@ -56,5 +56,9 @@ public class GreetingController {
         }
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+        service.delete(id);
+    }
 
 }

@@ -13,4 +13,6 @@ public interface IGreetingService {
     List<Greeting> listAll();
 
     void save(Greeting greeting);
+
+    void delete(Integer id);
 }
