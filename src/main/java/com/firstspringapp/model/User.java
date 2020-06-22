@@ -3,6 +3,16 @@ package com.firstspringapp.model;
 public class User {
     private String firstName;
     private String lastName;
+    private String greetMessage;
+
+    public String getGreetMessage() {
+        return greetMessage;
+    }
+
+    public void setGreetMessage(String greetMessage) {
+        this.greetMessage = greetMessage;
+    }
+
 
     public String getFirstName() {
         return firstName;
