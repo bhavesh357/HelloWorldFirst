@@ -5,6 +5,8 @@ import com.firstspringapp.model.Greeting;
 import com.firstspringapp.model.User;
 import com.firstspringapp.service.IGreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,4 +45,16 @@ public class GreetingController {
     public void add(@RequestBody Greeting greeting) {
         service.save(greeting);
     }
+
+    @PutMapping("/{id}")
+    public void update(@RequestBody Greeting person, @PathVariable Integer id) {
+        try {
+            Greeting existGreeting = service.getGreetingById(id);
+            service.save(person);
+        } catch (NoSuchElementException e) {
+            throw new GreetingException(GreetingException.GREETING_ERROR.NOT_FOUND)
+        }
+    }
+
+
 }
