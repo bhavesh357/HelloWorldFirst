@@ -38,4 +38,9 @@ public class GreetingController {
             throw new GreetingException(GreetingException.GREETING_ERROR.NOT_FOUND);
         }
     }
+
+    @PostMapping("")
+    public void add(@RequestBody Greeting greeting) {
+        service.save(greeting);
+    }
 }

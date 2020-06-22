@@ -11,4 +11,6 @@ public interface IGreetingService {
     Greeting getGreetingById(long id);
 
     List<Greeting> listAll();
+
+    void save(Greeting greeting);
 }
