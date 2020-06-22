@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -16,12 +17,17 @@ import java.util.concurrent.atomic.AtomicLong;
 public class GreetingController {
 
     @Autowired
-    private IGreetingService greetingService;
+    private IGreetingService service;
 
     @GetMapping("")
     public Greeting greeting(@RequestParam(value = "name",defaultValue = "World") String name){
         User user = new User();
         user.setFirstName(name);
-        return greetingService.addGreeting(user);
+        return service.addGreeting(user);
+    }
+
+    @GetMapping("/persons")
+    public List<Greeting> list() {
+        return service.listAll();
     }
 }
