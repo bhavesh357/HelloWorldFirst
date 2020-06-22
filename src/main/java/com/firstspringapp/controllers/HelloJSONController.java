@@ -45,4 +45,14 @@ public class HelloJSONController {
     public void add(@RequestBody User user) {
         service.addUser(user);
     }
+
+    @PutMapping("/{id}")
+    public void update(@RequestBody User user, @PathVariable Integer id) {
+        try {
+            User existingUser = service.getUserById(id);
+            service.addUser(user);
+        } catch (NoSuchElementException e) {
+            throw new GreetingException(GreetingException.GREETING_ERROR.NOT_FOUND);
+        }
+    }
 }
