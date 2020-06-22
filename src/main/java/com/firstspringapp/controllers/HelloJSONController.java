@@ -7,10 +7,7 @@ import com.firstspringapp.model.User;
 import com.firstspringapp.service.IGreetingService;
 import com.firstspringapp.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -42,5 +39,10 @@ public class HelloJSONController {
         } catch (NoSuchElementException e) {
             throw new GreetingException(GreetingException.GREETING_ERROR.NOT_FOUND);
         }
+    }
+
+    @PostMapping("")
+    public void add(@RequestBody User user) {
+        service.addUser(user);
     }
 }

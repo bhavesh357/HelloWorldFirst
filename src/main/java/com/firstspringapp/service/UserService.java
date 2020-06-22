@@ -30,4 +30,5 @@ public class UserService implements IUserService{
     public User getUserById(Integer id) {
         return repo.findById(Long.valueOf(id)).get();
     }
+
 }
