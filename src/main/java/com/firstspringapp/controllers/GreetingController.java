@@ -52,7 +52,7 @@ public class GreetingController {
             Greeting existGreeting = service.getGreetingById(id);
             service.save(person);
         } catch (NoSuchElementException e) {
-            throw new GreetingException(GreetingException.GREETING_ERROR.NOT_FOUND)
+            throw new GreetingException(GreetingException.GREETING_ERROR.NOT_FOUND);
         }
     }
 
