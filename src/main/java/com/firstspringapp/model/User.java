@@ -1,9 +1,26 @@
 package com.firstspringapp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
+    private long counter;
     private String firstName;
     private String lastName;
     private String greetMessage;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long getCounter() {
+        return counter;
+    }
+
+    public void setCounter(long counter) {
+        this.counter = counter;
+    }
 
     public String getGreetMessage() {
         return greetMessage;
@@ -32,6 +49,6 @@ public class User {
 
     @Override
     public String toString() {
-        return firstName;
+        return firstName+" "+lastName;
     }
 }

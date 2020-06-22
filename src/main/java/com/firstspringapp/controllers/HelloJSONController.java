@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/helloJSON")
+@RequestMapping("/hellojson")
 public class HelloJSONController {
 
     @Autowired
@@ -37,6 +37,15 @@ public class HelloJSONController {
         } catch (NoSuchElementException e) {
             throw new UserException(UserException.USER_ERROR.NOT_FOUND);
         }
+    }
+
+    @PostMapping("/user")
+    public void add(@RequestParam(value = "firstName")  String firstName,@RequestParam(value = "lastName")  String lastName){
+        User user = new User();
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setGreetMessage("Hello ,"+user.toString());
+        service.addUser(user);
     }
 
     @PostMapping("")
