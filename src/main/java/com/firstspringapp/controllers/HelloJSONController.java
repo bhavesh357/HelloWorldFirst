@@ -1,10 +1,8 @@
 package com.firstspringapp.controllers;
 
 
-import com.firstspringapp.exception.GreetingException;
-import com.firstspringapp.model.Greeting;
+import com.firstspringapp.exception.UserException;
 import com.firstspringapp.model.User;
-import com.firstspringapp.service.IGreetingService;
 import com.firstspringapp.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +35,7 @@ public class HelloJSONController {
             User user = service.getUserById(id);
             return user;
         } catch (NoSuchElementException e) {
-            throw new GreetingException(GreetingException.GREETING_ERROR.NOT_FOUND);
+            throw new UserException(UserException.USER_ERROR.NOT_FOUND);
         }
     }
 
@@ -52,7 +50,7 @@ public class HelloJSONController {
             User existingUser = service.getUserById(id);
             service.addUser(user);
         } catch (NoSuchElementException e) {
-            throw new GreetingException(GreetingException.GREETING_ERROR.NOT_FOUND);
+            throw new UserException(UserException.USER_ERROR.NOT_FOUND);
         }
     }
 }
