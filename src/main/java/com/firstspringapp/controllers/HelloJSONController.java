@@ -53,4 +53,9 @@ public class HelloJSONController {
             throw new UserException(UserException.USER_ERROR.NOT_FOUND);
         }
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+        service.delete(id);
+    }
 }

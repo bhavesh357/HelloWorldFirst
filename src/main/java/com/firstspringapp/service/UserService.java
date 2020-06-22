@@ -31,4 +31,9 @@ public class UserService implements IUserService{
         return repo.findById(Long.valueOf(id)).get();
     }
 
+    @Override
+    public void delete(Integer id) {
+        repo.deleteById(Long.valueOf(id));
+    }
+
 }
