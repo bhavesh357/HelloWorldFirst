@@ -8,4 +8,7 @@ public interface IUserService {
     User addUser(User user);
 
     List<User> listAll();
+
+    User getUserById(Integer id);
+
 }

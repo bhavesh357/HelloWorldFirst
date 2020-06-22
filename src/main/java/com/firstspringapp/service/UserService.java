@@ -25,4 +25,9 @@ public class UserService implements IUserService{
     public List<User> listAll() {
         return repo.findAll();
     }
+
+    @Override
+    public User getUserById(Integer id) {
+        return repo.findById(Long.valueOf(id)).get();
+    }
 }
